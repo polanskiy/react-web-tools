@@ -1,8 +1,8 @@
 ## Installation
 ```
-npm i react-web-tools --save-dev
+npm i react-web-tools --save
 ```
-## Tabs
+# Tabs
 
 ```
 import React from 'react';
@@ -32,7 +32,7 @@ export default App;
 
 ```
 
-# Tabs Options
+## Tabs Options
 ```
 const options = {
   tabsBoxClass: 'tabsBox', // default value: 'tabsBox'
@@ -41,7 +41,7 @@ const options = {
   activeColor: '#fc0', // default value: '#9369BF'
 }
 ```
-## Carousel
+# Carousel
 
 ```
 import Carousel from 'react-infinity-carousel';
