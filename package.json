@@ -1,6 +1,6 @@
 {
   "name": "react-web-tools",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",
@@ -70,5 +70,13 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "eslint-config-airbnb": "^17.1.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "carousel",
+    "slider",
+    "tabs",
+    "hooks",
+    "infinity"
+  ]
 }
