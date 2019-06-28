@@ -44,7 +44,8 @@ const options = {
 # Carousel
 
 ```
-import Carousel from 'react-infinity-carousel';
+import React from 'react';
+import { Carousel } from 'react-infinity-carousel';
 
 class App extends Component {
   render() {
