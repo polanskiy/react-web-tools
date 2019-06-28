@@ -1,7 +1,7 @@
 ## Installation
-
+```
 npm i react-web-tools --save-dev
-
+```
 ## Tabs
 
 ```
@@ -33,12 +33,14 @@ export default App;
 ```
 
 # Tabs Options
-
-  tabsBoxClass: 'tabsBox',
-  tabHeaderClass: 'tabHeader',
-  tabHeaderBoxClass: 'tabHeaderBox',
-  activeColor: 'red',
-
+```
+const options = {
+  tabsBoxClass: 'tabsBox', // default value: 'tabsBox'
+  tabHeaderClass: 'tabHeader', // default value: 'tabHeader'
+  tabHeaderBoxClass: 'tabHeaderBox', // default value: 'tabHeaderBox'
+  activeColor: '#fc0', // default value: '#9369BF'
+}
+```
 ## Carousel
 
 ```
