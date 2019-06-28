@@ -1,0 +1,74 @@
+{
+  "name": "react-web-tools",
+  "version": "0.1.2",
+  "private": false,
+  "license": "(ISC OR GPL-3.0)",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polanskiy/react-web-tools.git"
+  },
+  "babel": {
+    "presets": [
+      "@babel/react"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "compile": "SET NODE_ENV=production & npx babel src/component --out-dir dist --copy-files"
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "rules": {
+      "react/jsx-filename-extension": 0,
+      "import/prefer-default-export": 0,
+      "react/prop-types": 0,
+      "no-console": 0,
+      "no-nested-ternary": 0,
+      "react/button-has-type": 0,
+      "no-param-reassign": 0,
+      "react/no-array-index-key": 0,
+      "jsx-a11y/label-has-for": 0,
+      "jsx-a11y/label-has-associated-control": 0,
+      "camelcase": 0,
+      "react/jsx-one-expression-per-line": 0,
+      "max-len": 0,
+      "no-case-declarations": 0,
+      "jsx-a11y/media-has-caption": 0
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "eslint-config-airbnb": "^17.1.0"
+  }
+}
