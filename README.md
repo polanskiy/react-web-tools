@@ -45,7 +45,7 @@ const options = {
 
 ```
 import React from 'react';
-import { Carousel } from 'react-infinity-carousel';
+import { Carousel } from 'react-web-tools';
 
 class App extends Component {
   render() {
