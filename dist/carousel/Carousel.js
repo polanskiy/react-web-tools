@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useState } from 'react';
+import React, { Children, useEffect, useState, useCallback } from 'react';
 import './carousel.css';
 
 const Carousel = ({
@@ -9,7 +9,7 @@ const Carousel = ({
   dots,
   transitionDuration,
   transitionTimingFunction,
-  carouselBoxClass,
+  carouselClass,
   dotsBoxClass,
   arrowsBoxClass
 }) => {
@@ -17,8 +17,7 @@ const Carousel = ({
   const [dragging, setDragging] = useState(null);
   const [sliding, setSliding] = useState(false);
   const [offset, setOffset] = useState(0);
-
-  const changeSlide = sld => {
+  const changeSlide = useCallback(sld => {
     if (document.hidden) return;
 
     if (sld >= 0 && sld <= React.Children.count(children) + 1) {
@@ -27,8 +26,7 @@ const Carousel = ({
       setDragging(null);
       setOffset(0);
     }
-  };
-
+  }, [children]);
   useEffect(() => {
     let timer;
 
@@ -39,7 +37,7 @@ const Carousel = ({
     return () => {
       clearInterval(timer);
     };
-  }, [slide, dragging]);
+  }, [slide, dragging, autoPlayInterval, changeSlide, children]);
 
   const onTransitionEnd = () => {
     let newSlide = slide;
@@ -101,7 +99,7 @@ const Carousel = ({
     flexShrink: 0
   };
   return React.createElement("div", {
-    className: carouselBoxClass,
+    className: carouselClass,
     style: {
       position: 'relative',
       overflowX: 'hidden',
@@ -154,7 +152,7 @@ Carousel.defaultProps = {
   initialSlide: 1,
   transitionTimingFunction: 'ease-in-out',
   transitionDuration: 0.5,
-  autoPlayInterval: 1000,
+  autoPlayInterval: 3000,
   arrows: true,
   dots: true,
   dotsBoxClass: 'dotsBox',

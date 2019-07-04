@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 import './tabs.css';
 
 const Tabs = ({
-  children, tabHeaderClass, tabsBoxClass, tabHeaderBoxClass, activeColor, startTab,
+  children, tabHeaderClass, tabsBoxClass, tabHeaderBoxClass, startTab, activeTabClass,
 }) => {
   const [activeTab, setActiveTab] = useState(startTab - 1);
-
-  const activeStyle = {
-    background: activeColor,
-  };
 
   const renderTabs = (tabs) => {
     if (tabs.length) {
@@ -16,9 +12,8 @@ const Tabs = ({
         <div
           key={tab.props.name}
           role="presentation"
-          className={tabHeaderClass}
+          className={activeTab === i ? `${tabHeaderClass} ${activeTabClass}` : tabHeaderClass}
           onClick={() => setActiveTab(i)}
-          style={activeTab === i ? activeStyle : null}
         >
           {tab.props.name}
         </div>
@@ -67,5 +62,5 @@ Tabs.defaultProps = {
   tabsBoxClass: 'tabsBox',
   tabHeaderClass: 'tabHeader',
   tabHeaderBoxClass: 'tabHeaderBox',
-  activeColor: '#9369BF',
+  activeTabClass: 'activeTab',
 };

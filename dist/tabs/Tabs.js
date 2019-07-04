@@ -6,15 +6,12 @@ const Tabs = ({
   tabHeaderClass,
   tabsBoxClass,
   tabHeaderBoxClass,
-  activeColor
+  activeColor,
+  startTab
 }) => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(startTab - 1);
   const activeStyle = {
     background: activeColor
-  };
-
-  const changeTab = active => {
-    setActiveTab(active);
   };
 
   const renderTabs = tabs => {
@@ -23,7 +20,7 @@ const Tabs = ({
         key: tab.props.name,
         role: "presentation",
         className: tabHeaderClass,
-        onClick: () => changeTab(i),
+        onClick: () => setActiveTab(i),
         style: activeTab === i ? activeStyle : null
       }, tab.props.name));
     }
@@ -52,6 +49,7 @@ const Tabs = ({
 
 export default Tabs;
 Tabs.defaultProps = {
+  startTab: 1,
   tabsBoxClass: 'tabsBox',
   tabHeaderClass: 'tabHeader',
   tabHeaderBoxClass: 'tabHeaderBox',

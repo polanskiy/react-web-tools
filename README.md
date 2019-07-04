@@ -43,7 +43,7 @@ const options = {
   tabsBoxClass: 'tabsBox', // default value: 'tabsBox'
   tabHeaderClass: 'tabHeader', // default value: 'tabHeader'
   tabHeaderBoxClass: 'tabHeaderBox', // default value: 'tabHeaderBox'
-  activeColor: '#fc0', // default value: '#9369BF'
+  activeTabClass: 'activeTab', // default value: 'activeTab'
 }
 ```
 # Carousel
