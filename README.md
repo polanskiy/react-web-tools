@@ -1,3 +1,7 @@
+## Description
+Super lightweight components for react apps.
+
+
 ## Installation
 ```
 npm i react-web-tools --save
@@ -35,6 +39,7 @@ export default App;
 ## Tabs Options
 ```
 const options = {
+  startTab: 2, // default value: 1
   tabsBoxClass: 'tabsBox', // default value: 'tabsBox'
   tabHeaderClass: 'tabHeader', // default value: 'tabHeader'
   tabHeaderBoxClass: 'tabHeaderBox', // default value: 'tabHeaderBox'
@@ -71,7 +76,7 @@ class App extends Component {
 
 ```
 const options = {
-  autoPlayInterval: 1000, // default value: 3000
+  autoPlayInterval: 1000, // default value: 3000, set 'false' to disable
   arrows: false, // default value: true
   dots: false, // default value: true
   transitionDuration: 0.9, // default value: 0.5

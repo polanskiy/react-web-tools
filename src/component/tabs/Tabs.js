@@ -2,16 +2,12 @@ import React, { useState } from 'react';
 import './tabs.css';
 
 const Tabs = ({
-  children, tabHeaderClass, tabsBoxClass, tabHeaderBoxClass, activeColor,
+  children, tabHeaderClass, tabsBoxClass, tabHeaderBoxClass, activeColor, startTab,
 }) => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(startTab - 1);
 
   const activeStyle = {
     background: activeColor,
-  };
-
-  const changeTab = (active) => {
-    setActiveTab(active);
   };
 
   const renderTabs = (tabs) => {
@@ -21,7 +17,7 @@ const Tabs = ({
           key={tab.props.name}
           role="presentation"
           className={tabHeaderClass}
-          onClick={() => changeTab(i)}
+          onClick={() => setActiveTab(i)}
           style={activeTab === i ? activeStyle : null}
         >
           {tab.props.name}
@@ -67,6 +63,7 @@ const Tabs = ({
 export default Tabs;
 
 Tabs.defaultProps = {
+  startTab: 1,
   tabsBoxClass: 'tabsBox',
   tabHeaderClass: 'tabHeader',
   tabHeaderBoxClass: 'tabHeaderBox',
