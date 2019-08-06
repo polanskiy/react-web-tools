@@ -44,3 +44,12 @@
   display: flex;
   box-shadow: 0 3px 5px 0px rgba(0,0,0,.1);
 }
+
+.tabHeader {
+  background: #fff;
+  color: #000;
+}
+.tabHeaderBox .activeTab {
+  background: #9369BF;
+  color:#fff;
+}

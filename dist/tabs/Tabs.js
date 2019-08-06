@@ -6,35 +6,43 @@ const Tabs = ({
   tabHeaderClass,
   tabsBoxClass,
   tabHeaderBoxClass,
-  activeColor,
-  startTab
+  startTab,
+  activeTabClass
 }) => {
   const [activeTab, setActiveTab] = useState(startTab - 1);
-  const activeStyle = {
-    background: activeColor
-  };
 
   const renderTabs = tabs => {
     if (tabs.length) {
-      return tabs.map((tab, i) => React.createElement("div", {
-        key: tab.props.name,
-        role: "presentation",
-        className: tabHeaderClass,
-        onClick: () => setActiveTab(i),
-        style: activeTab === i ? activeStyle : null
-      }, tab.props.name));
+      return tabs.map((tab, i) => {
+        if (tab) {
+          return React.createElement("div", {
+            key: tab.props.name,
+            role: "presentation",
+            className: activeTab === i ? `${tabHeaderClass} ${activeTabClass}` : tabHeaderClass,
+            onClick: () => setActiveTab(i)
+          }, tab.props.name);
+        }
+
+        return null;
+      });
     }
 
     return React.createElement("div", {
-      className: tabHeaderClass
+      className: `${tabHeaderClass} ${activeTabClass}`
     }, tabs.props.name);
   };
 
   const renderContent = tabs => {
     if (tabs.length) {
-      return tabs.map((tab, i) => React.createElement(React.Fragment, {
-        key: tab.props.name
-      }, activeTab === i && React.createElement(React.Fragment, null, tab)));
+      return tabs.map((tab, i) => {
+        if (tab) {
+          return React.createElement(React.Fragment, {
+            key: tab.props.name
+          }, activeTab === i && React.createElement(React.Fragment, null, tab));
+        }
+
+        return null;
+      });
     }
 
     return React.createElement(React.Fragment, null, tabs);
@@ -53,5 +61,5 @@ Tabs.defaultProps = {
   tabsBoxClass: 'tabsBox',
   tabHeaderClass: 'tabHeader',
   tabHeaderBoxClass: 'tabHeaderBox',
-  activeColor: '#9369BF'
+  activeTabClass: 'activeTab'
 };

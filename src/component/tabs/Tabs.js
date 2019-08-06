@@ -8,19 +8,24 @@ const Tabs = ({
 
   const renderTabs = (tabs) => {
     if (tabs.length) {
-      return (tabs.map((tab, i) => (
-        <div
-          key={tab.props.name}
-          role="presentation"
-          className={activeTab === i ? `${tabHeaderClass} ${activeTabClass}` : tabHeaderClass}
-          onClick={() => setActiveTab(i)}
-        >
-          {tab.props.name}
-        </div>
-      )));
+      return (tabs.map((tab, i) => {
+        if (tab) {
+          return (
+            <div
+              key={tab.props.name}
+              role="presentation"
+              className={activeTab === i ? `${tabHeaderClass} ${activeTabClass}` : tabHeaderClass}
+              onClick={() => setActiveTab(i)}
+            >
+              {tab.props.name}
+            </div>
+          );
+        }
+        return null;
+      }));
     }
     return (
-      <div className={tabHeaderClass}>
+      <div className={`${tabHeaderClass} ${activeTabClass}`}>
         {tabs.props.name}
       </div>
     );
@@ -28,15 +33,20 @@ const Tabs = ({
 
   const renderContent = (tabs) => {
     if (tabs.length) {
-      return (tabs.map((tab, i) => (
-        <React.Fragment key={tab.props.name}>
-          {activeTab === i && (
-            <React.Fragment>
-              {tab}
+      return (tabs.map((tab, i) => {
+        if (tab) {
+          return (
+            <React.Fragment key={tab.props.name}>
+              {activeTab === i && (
+                <React.Fragment>
+                  {tab}
+                </React.Fragment>
+              )}
             </React.Fragment>
-          )}
-        </React.Fragment>
-      )));
+          );
+        }
+        return null;
+      }));
     }
     return (
       <React.Fragment>
